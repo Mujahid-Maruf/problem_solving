@@ -1,16 +1,20 @@
 L, R = map(int, input().split())
 
-def fibonacciBetween(l,r,n):
-    series = [0, 1]
-    for i in range(2, n):
-        if series[-1]+series[-2] <=r :
-            series.append(series[-1] + series[-2])
-    return series[:n]
+def fibonacciBetween(l, r):
+    if r < 0:
+        return []
+        
+    a, b = 0, 1
+    result = set() 
 
-initResult=fibonacciBetween(R,R)
-intermidiateResult=set(initResult)
-a=list(intermidiateResult)
-a.sort()
+    while a <= r:
+        if a >= l:
+            result.add(a)
+        a, b = b, a + b
 
-for i in a:
+    return sorted(list(result))
+
+finalResult = fibonacciBetween(L, R)
+
+for i in finalResult:
     print(i)
