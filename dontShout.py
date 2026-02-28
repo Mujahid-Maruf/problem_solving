@@ -1,7 +1,11 @@
 inpt=input("Enter Sentence here: ")
+words=inpt.split()
 
-output=''
+valid_words=[]
 
-for i in inpt:
-    if i.islower():
-        print(i, end='') 
+for word in words:
+    if not word.isupper():
+        valid_words.append(word)
+
+output=' '.join(valid_words)
+print(output)
